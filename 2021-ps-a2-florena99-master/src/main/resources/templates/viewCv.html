@@ -1,0 +1,63 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CV</title>
+</head>
+<body>
+<form th:action="@{/editCv}" th:object="${cv}" method="post">
+    <div class="col-4">
+        <input type="hidden" th:field="*{id}">
+        <label class="form-label">First Name</label>
+        <input type="text" name="first-name" id="first-name" required th:field="*{firstName}" th:placeholder="#{cv.firstname}" />
+    </div>
+    <div class="col-4">
+        <label class="form-label">Last Name</label>
+        <input th:field="*{lastName}"name="last-name" type="text" required th:placeholder="#{cv.lastname}"  />
+    </div>
+    <div class="col-7">
+        <label class="form-label">Email</label>
+        <input th:field="*{email}"name="email" type="email" required th:placeholder="#{cv.email}" />
+    </div>
+    <div class="col-9">
+        <label class="form-label">Street Address</label>
+        <input th:field="*{address}"name="address" type="text" th:placeholder="#{cv.address}"  />
+    </div>
+    <div class="col-3">
+        <label class="form-label">Mobile Phone</label>
+        <input th:field="*{phone}"name="mobile-phone" type="text" th:placeholder="#{cv.phone}"  />
+    </div>
+    <div class="col-3">
+        <label class="form-label">Experience?</label>
+        <input th:field="*{experience}"name="us-work" type="radio" value="yes" required /><span class="radio-selection"> Yes</span> <input name="us-work" type="radio" value="no" /><span class="radio-selection"> No</span>
+    </div>
+    <div class="col-3">
+        <label class="form-label">How old are you?</label>
+        <input th:field="*{birthdate}"name="date-of-birth" type="date" th:placeholder="#{cv.birthdate}"  />
+    </div>
+    <section>
+        <h2 class="form-section-title">Education</h2>
+        <section class="form-field-section">
+            <div class="row" th:object="${education}">
+                <div>
+                    <input type="hidden" th:field="*{id}">
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Name</label>
+                    <input th:field="*{name}" name="high-school-name" type="text" th:placeholder="#{education.name}"  />
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Start Date</label>
+                    <input th:field="*{startDate}" name="start date" type="date" th:placeholder="#{education.startDate}" />
+                </div>
+                <div class="col-4">
+                    <label class="form-label">End Date</label>
+                    <input th:field="*{endDate}" name="end date" type="date" th:placeholder="#{education.endDate}" />
+                </div>
+            </div>
+        </section>
+    </section>
+    <input type="submit" value="SAVE" />
+</form>
+<a th:href="@{/home}">Home</a>
+</body>
+</html>

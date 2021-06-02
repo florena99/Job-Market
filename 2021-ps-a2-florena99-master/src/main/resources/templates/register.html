@@ -1,0 +1,44 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'/>
+    <link rel = "stylesheet" type="text/css" th:href="@{/css/register.css}" />
+</head>
+<body>
+<div class="testbox">
+    <h1>Registration</h1>
+
+    <form th:action="@{/process_register}" th:object="${user}" method="post">
+        <hr>
+        <div class="accounttype">
+
+            <input type="radio" th:field="*{type}" value="Personal" id="radioOne" name="account" checked/>
+            <label for="radioOne" class="radio" chec>Personal</label>
+            <input type="radio"  th:field="*{type}" value="Company" id="radioTwo" name="account" />
+            <label for="radioTwo" class="radio">Company</label>
+        </div>
+        <hr>
+
+
+            <label id="name1" for=email><i class="icon-envelope "></i></label>
+            <input type="email" required th:field="*{email}" name="email"  id="email" placeholder="Email" />
+            <label id="icon2" for="name"><i class="icon-user" ></i></label>
+            <input type="text" required th:field="*{username}" name="name"  id="name" placeholder="Username" />
+            <label id="icon3" for="password"><i class="icon-shield"></i></label>
+            <input type="password" required th:field="*{password}" name="password" id="password" placeholder="Password" />
+                     <div class="gender">
+                         <input type="radio" required th:field="*{gender}" value="male" id="male" name="gender" checked/>
+                         <label for="male" class="radio" chec>Male</label>
+                          <input type="radio" required th:field="*{gender}" value="female" id="female" name="gender" />
+                         <label for="female" class="radio">Female</label>
+                     </div>
+        <button type="submit" >Register</button>
+        <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+
+
+        </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<form  th:action="@{/account}" th:object="${user}" method="post">
+    <section>
+        <h2 class="form-section-title">Personal Information</h2>
+        <div class="row">
+            <div class="col-4">
+                <label class="form-label">Name</label>
+                <input type="text" name="first-name" id="first-name" required th:field="*{name}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <label class="form-label">Email</label>
+                <input th:field="*{email}"name="email" type="email" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <label class="form-label">Password</label>
+                <input th:field="*{password}"name="address" type="password" />
+            </div>
+        </div>
+    </section>
+    <input type="submit" value="Submit" />
+</form>
+<form th:action="@{/deleteSucced}" method="post">
+    <section>
+        <h2>Delete Account</h2>
+        <button type="submit"  >Delete</button>
+    </section>
+</form>
+<h2>CV manager</h2>
+<form th:action="@{/viewCv}" method="post">
+    <section>
+        <button type="submit"  >View</button>
+    </section>
+</form>
+<form th:action="@{/deleteCV}" method="post">
+    <section>
+        <button type="submit"  >DeleteCV</button>
+    </section>
+
+    <section><a th:href="@{/downloadCV}">Download CV</a></section>
+</form>
+
+
+<!--
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    $('#job-form').submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbz85iNSejOw6cvU6xwOITkHLe61UJv0TYPNls-nsd9aHYKAeZ_x/exec',
+        type: 'post',
+        data: $('#job-form').serialize(),
+        success: function() {
+          alert("Your application has been submitted!");
+        }
+      });
+    });
+  });
+</script>
+-->
+</body>
+</html>

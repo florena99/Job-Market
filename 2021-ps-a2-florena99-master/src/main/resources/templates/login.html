@@ -1,0 +1,28 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel = "stylesheet" type="text/css" th:href="@{/css/login.css}" />
+<body>
+<div class="login">
+    <div class="login-screen">
+        <div class="app-title">
+            <h1>Login</h1>
+        </div>
+<form th:action="@{/login}" th:object="${credentials}" method="post">
+        <div class="login-form">
+            <div class="control-group">
+                <input th:field="*{username}" type="text" class="login-field" value="" placeholder="email" id="login-name">
+                <label class="login-field-icon fui-user" for="login-name"></label>
+            </div>
+
+            <div class="control-group">
+                <input th:field="*{password}" type="password" class="login-field" value="" placeholder="password" id="login-pass">
+                <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-block">login</button>
+            <a th:href="@{/register}">Register</a>
+
+        </div>
+</form>
+    </div>
+</div>
+</body>

@@ -1,0 +1,24 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="testbox">
+    <h1>Registration</h1>
+
+    <form th:action="@{/downloadCVSuccess}" th:object="${strategie}" method="post">
+        <hr>
+        <div class="accounttype">
+
+            <input type="radio" required th:field="*{type}" value="PDF" id="radioOne" name="type" checked/>
+            <label for="radioOne" class="radio" >PDF</label>
+            <input type="radio" required th:field="*{type}" value="CSV" id="radioTwo" name="type" />
+            <label for="radioTwo" class="radio">CSV</label>
+        </div>
+        <hr>
+        <button type="submit" >Generate</button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{/jobPageAdmin}" th:object="${job}" method="post">
+    <section>
+        <h2 class="form-section-title">Job</h2>
+        <div class="row">
+            <div class="col-4">
+                <label class="form-label">Name</label>
+                <label for="name"></label><input type="text" name="name" id="name" required th:field="*{name}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <label class="form-label">Description</label>
+                <input th:field="*{description}"name="description" type="text" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <label class="form-label">Type</label>
+                <input th:field="*{type}"name="type" type="text" />
+            </div>
+        </div>
+    </section>
+    <input type="submit" value="Submit" />
+</form>
+<form th:action="@{/deleteJobs}" method="post">
+    <input  type="submit" value="Delete Jobs" />
+</form>
+<a th:href="@{/homeAdmin}">Home</a>
+</body>
+</html>
